@@ -1,0 +1,43 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner scanner = new Scanner(System.in);
+       //gets length of array
+        int n = scanner.nextInt();
+        
+        //create the array
+        int[] arr = new int[n];
+        int res=0;
+        //res is number of negative arrays
+        
+        
+        for(int i = 0; i< n; i++){
+           //fill in the array
+                arr[i] = scanner.nextInt();  
+            
+                //s or sum is the element + whichever inclusive of [i:i] thats why declare here
+                int s=arr[i];
+            
+                if(s<0){
+                    res++;
+                }
+                    for(int j=i-1; j>=0; j--){
+                        //so we're going from the end of the array to the front and adding from the end to the sum
+                        s+=arr[j];
+                        if(s<0){
+                            res++;
+                        }
+                    }
+        }
+     System.out.print(res); 
+    }
+  
+}
+        
