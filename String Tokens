@@ -1,0 +1,24 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String s = scan.nextLine();
+        scan.close();
+        
+        //splitting the string into words based off the spaces or punctuation between them
+        StringTokenizer multiTokenizer = new StringTokenizer(s, " ',? . !_@-");
+        
+        //print out number of tokens
+        System.out.println(multiTokenizer.countTokens());
+        
+        //print the tokens
+        while (multiTokenizer.hasMoreTokens())
+        {
+          System.out.println(multiTokenizer.nextToken());
+        }
+    }
+}
+
