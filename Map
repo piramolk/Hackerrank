@@ -1,0 +1,39 @@
+import java.util.*;
+import java.io.*;
+
+class Solution{
+    
+	public static void main(String []argh)
+	{
+        //getting the entries
+		Scanner in = new Scanner(System.in);
+		int n=in.nextInt();
+		in.nextLine();
+
+        //create the map for the entries
+        HashMap<String, Integer> phonebook = new HashMap<String, Integer>();
+         
+		for(int i=0;i<n;i++)
+		{
+			String name=in.nextLine();
+			int phone=in.nextInt();
+            phonebook.put(name,phone);
+			in.nextLine();         
+		}       
+        //getting the input for the queries
+        while(in.hasNext()){
+            String query = in.nextLine();
+            try{
+                //we can easily look up the number by getting the name
+                int temp = phonebook.get(query);
+                System.out.print(query +"="+temp);
+                System.out.println();
+            }
+            catch(Exception e){
+                System.out.print("Not found"); 
+                System.out.println();
+            }
+            
+        }
+    }
+}
